@@ -4,7 +4,8 @@ const credentials = require('./credentials.js')
 
 
 if(process.env.NODE_ENV === 'production') {
-	//var apikey = process.env.API_KEY
+	var mapbox_key = process.env.MAPBOX_TOKEN
+	var darksky_key = process.env.DARK_SKY_SECRET_KEY
 } else {
 	const credentials = require('./credentials.js')
 	//var apikey = credentials.apikey
@@ -12,7 +13,7 @@ if(process.env.NODE_ENV === 'production') {
 
 const geocode = function(ciudad, callback) {
 	const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + ciudad 
-				+'.json?access_token=' + credentials.MAPBOX_TOKEN
+				+'.json?access_token=' + mapbox_key
 	console.log(url)
 	request({ url, json: true }, function(error, response) {
 		if(error) {
@@ -45,7 +46,7 @@ const geocode = function(ciudad, callback) {
 const weatherReq = function(ciudad, latitude, longitude, callback) {
 	console.log('2')
 	//REQUEST https://api.darksky.net/forecast/[key]/[latitude],[longitude]
-	const url = 'https://api.darksky.net/forecast/' + credentials.DARK_SKY_SECRET_KEY + 
+	const url = 'https://api.darksky.net/forecast/' + DARK_SKY_SECRET_KEY + 
 				'/' + latitude + ',' + longitude + '?lang=es&units=si'  
 	console.log(url)
 	request({ url, json: true }, function(error, response) {
