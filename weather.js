@@ -1,7 +1,5 @@
 
 const request = require('request')
-const credentials = require('./credentials.js')
-
 
 if(process.env.NODE_ENV === 'production') {
 	var mapbox_key = process.env.MAPBOX_TOKEN
