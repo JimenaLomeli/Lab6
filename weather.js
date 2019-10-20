@@ -46,7 +46,7 @@ const geocode = function(ciudad, callback) {
 const weatherReq = function(ciudad, latitude, longitude, callback) {
 	console.log('2')
 	//REQUEST https://api.darksky.net/forecast/[key]/[latitude],[longitude]
-	const url = 'https://api.darksky.net/forecast/' + DARK_SKY_SECRET_KEY + 
+	const url = 'https://api.darksky.net/forecast/' + darksky_key + 
 				'/' + latitude + ',' + longitude + '?lang=es&units=si'  
 	console.log(url)
 	request({ url, json: true }, function(error, response) {
