@@ -8,7 +8,8 @@ if(process.env.NODE_ENV === 'production') {
 	var darksky_key = process.env.DARK_SKY_SECRET_KEY
 } else {
 	const credentials = require('./credentials.js')
-	//var apikey = credentials.apikey
+	var mapbox_key = credentials.MAPBOX_TOKEN
+	var darksky_key = credentials.DARK_SKY_SECRET_KEY
 }
 
 const geocode = function(ciudad, callback) {
